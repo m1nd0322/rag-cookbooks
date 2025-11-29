@@ -1,0 +1,41 @@
+# Core LangChain Framework
+langchain>=0.3.0
+langchain-community>=0.3.0
+langchain-openai>=0.2.0
+langgraph>=0.2.0
+langsmith>=0.2.0
+
+# LLM Provider Integrations
+langchain-google-genai>=2.0.0
+langchain-huggingface>=0.1.0
+
+# Vector Databases
+chromadb>=0.5.0
+faiss-cpu>=1.8.0
+# Note: Updated package name from pinecone-client to pinecone
+# Some older notebooks may still import from pinecone_client
+pinecone>=5.0.0
+qdrant-client>=1.11.0
+
+# Document Processing
+pypdf>=5.0.0
+pytesseract>=0.3.0
+
+# Search & Retrieval
+rank-bm25>=0.2.0
+tavily-python>=0.5.0
+
+# Evaluation & Monitoring
+# Note: athina has complex dependencies. Install separately if needed:
+# pip install athina>=1.7.0
+
+# Additional Tools
+datasets>=2.16.0
+pandas>=2.0.0
+pydantic>=2.0.0
+# yfinance>=0.2.0  # Optional - install separately if needed (has build issues)
+
+# Jupyter Notebook Support
+jupyter>=1.0.0
+notebook>=7.0.0
+ipykernel>=6.25.0

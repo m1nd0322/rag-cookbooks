@@ -19,11 +19,11 @@ This is an educational cookbook repository from Athina AI containing 16 Jupyter 
 - Each notebook is self-contained and can run independently
 - API keys are expected via Google Colab's `userdata` (e.g., `userdata.get('OPENAI_API_KEY')`)
 
-**No traditional Python package structure:**
-- No requirements.txt, pyproject.toml, or setup.py
-- No test suite or CI/CD
-- Each notebook has its own inline `!pip install` commands
-- Not meant to be installed as a package
+**Python Package Setup:**
+- A `requirements.txt` file is now available in the root directory
+- Install all core dependencies: `pip install -r requirements.txt`
+- Note: Some packages (athina, yfinance) have complex dependencies and should be installed separately if needed
+- Tested with Python 3.11
 
 ## Running Notebooks
 
@@ -34,10 +34,12 @@ This is an educational cookbook repository from Athina AI containing 16 Jupyter 
 
 **Locally:**
 1. Clone the repository
-2. Install Jupyter: `pip install jupyter notebook`
-3. Open notebooks: `jupyter notebook`
-4. Modify API key loading from `userdata.get()` to `os.getenv()` or direct strings
-5. Install dependencies manually from each notebook's pip install cells
+2. Install dependencies: `pip install -r requirements.txt`
+3. Optional packages (install separately if needed):
+   - `pip install athina>=1.7.0` - For RAG evaluation
+   - `pip install yfinance>=0.2.0` - For finance data (one notebook)
+4. Open notebooks: `jupyter notebook`
+5. Modify API key loading from `userdata.get()` to `os.getenv()` or direct strings
 
 ## Common Notebook Structure
 
@@ -132,8 +134,10 @@ RagasAnswerRelevancy().run_batch(data=dataset).to_df()
 **Common dependencies pattern:**
 ```python
 !pip install -qU langchain langchain-openai langchain-community athina
-# Add technique-specific deps (e.g., chromadb, pinecone-client, etc.)
+# Add technique-specific deps (e.g., chromadb, pinecone, etc.)
 ```
+
+**Note on Pinecone:** The package was renamed from `pinecone-client` to `pinecone`. Older notebooks may use `pinecone-client` imports, but both work with the new `pinecone` package.
 
 ## API Keys Required
 
